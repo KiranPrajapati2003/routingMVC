@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+       <%- include('./partials/navbar') %>
+
+       <section class="container">
+        <form action="/update/<%= data.id %>" method="post" class="row">
+            <div class="col-md-6">
+                <label for="" class="mb-1">Title</label>
+                <input type="text" name="title" class="form-control my-2" placeholder="Title-Name" value="<%= data.title %>">
+            </div>
+
+            <div class="col-md-6">
+                <label for="" class="mb-1">Image Link</label>
+                <input type="text" name="img" class="form-control my-2" placeholder="Image-Link" value="<%= data.img %>">
+            </div> 
+
+            
+            <div class="col-md-6 mb-2">
+                <label for="" class="mb-1">Views</label>
+                <select name="view" class="form-select my-2" selected>
+                    <option value="select">--Select--</option>
+                    <option value="⭐⭐⭐⭐⭐" <% if(data.view == '⭐⭐⭐⭐⭐'){ %> selected <% } %>>⭐⭐⭐⭐⭐</option>
+                    <option value="⭐⭐⭐⭐" <% if(data.view == '⭐⭐⭐⭐'){ %> selected <% } %>>⭐⭐⭐⭐</option>
+                    <option value="⭐⭐⭐" <% if(data.view == '⭐⭐⭐'){ %> selected <% } %>>⭐⭐⭐</option>
+                    <option value="⭐⭐" <% if(data.view == '⭐⭐'){ %> selected <% } %>>⭐⭐</option>
+                    <option value="⭐" <% if(data.view == '⭐'){ %> selected <% } %>>⭐</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="" class="mb-1">Date</label>
+                <input type="date" name="date" class="form-control my-2" placeholder="dd-mm-yyyy" value="<%= data.date %>">
+            </div> 
+
+            <div class="col-12 mb-2 text-center">
+                <input type="submit" value="Update" class="btn btn-danger">
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
